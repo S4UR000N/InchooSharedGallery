@@ -1,32 +1,18 @@
 <?php
 
 //define base path, root path of our application
-define('BP', __DIR__ . '/');
+define('BP', dirname(__DIR__) . '/');
 
 //enable error_reporting to see php errors
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-//set include path, this is where included classes will be found
-$sip_implode = set_include_path(implode(PATH_SEPARATOR, array(
-    BP.'app/model',
-    BP.'app/controller',
-)));
-
-$implode = implode(PATH_SEPARATOR, array(
-    'app/model',
-    'app/controller',
-));
-
-echo BP . "<br>";
-echo $implode . "<br>";
-echo $sip_implode;
-
-//register autoloader, to auto-include classes when needed
-//spl_autoload_register(function($class) {
-//    $classPath = strtr($class, '\\', DIRECTORY_SEPARATOR) . '.php';
-//    return include $classPath;
-//});
+spl_autoload_register(function ($classname) {
+    $file = BP . $classname . '.php';
+    $file = str_replace('\\', '/', $file);
+//    if(file_exists($file)) { require_once($file); }
+    require_once($file);
+});
 
 //start app
-//App::start();
+\app\Port::open();
