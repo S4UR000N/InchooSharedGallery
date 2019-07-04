@@ -1,5 +1,7 @@
 <?php
 
+require_once "../layout/header/header.php";
+
 //define base path, root path of our application
 define('BP', dirname(__DIR__) . '/');
 
@@ -7,6 +9,7 @@ define('BP', dirname(__DIR__) . '/');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+//autoload classes using namespaces
 spl_autoload_register(function ($classname) {
     $file = BP . $classname . '.php';
     $file = str_replace('\\', '/', $file);

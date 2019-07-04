@@ -14,8 +14,18 @@ final class Server
 
     public function getRedirectURL()
     {
-        if(in_array('REDIRECT_URL', $this->server)) {
+        if(array_key_exists('REDIRECT_URL', $this->server))
+        {
             return $this->server['REDIRECT_URL'];
+        }
+        return false;
+    }
+
+    public function isPost()
+    {
+        if($this->server['REQUEST_METHOD'] === 'POST')
+        {
+            return true;
         }
         return false;
     }

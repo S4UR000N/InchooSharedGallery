@@ -3,10 +3,15 @@
 // namespace
 namespace app\controller;
 
-class HomeController
+class HomeController extends BaseController
 {
-    public function home()
+    public function out()
     {
         echo "welcome home";
+    }
+
+    public function in()
+    {
+
     }
 }
