@@ -3,10 +3,18 @@
 // namespace
 namespace app\extra;
 
+use app\layout\LayoutLoader;
+
 final class Port
 {
     public static function open()
     {
+        //load Basic HTML
+        \app\layout\LayoutLoader::loadBasicHTML();
+
+        //load Header
+        \app\layout\LayoutLoader::loadHeader();
+
         //get path and remove '/'
         $path = Request::pathInfo();
         $path = trim($path, '/');

@@ -43,7 +43,7 @@ public function dir_back(int $int)
     return $path;
 }
 
-//render View, Parameter: 1 => Folder:File, 2 => num of dir lvls to reach "src", 3 => Pass any Data to View
+//render View, Parameter: 1 => Folder:File, 2 => num of dir lvls to reach "app", 3 => Pass any Data to View
 /**
  * @param string $view Folder:File
  * @param int $int dir up to reach app folder

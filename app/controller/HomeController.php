@@ -7,7 +7,7 @@ class HomeController extends BaseController
 {
     public function out()
     {
-        echo "welcome home";
+        return $this->render_view('out:home', 1);
     }
 
     public function in()

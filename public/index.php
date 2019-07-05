@@ -1,7 +1,5 @@
 <?php
 
-require_once "../layout/header/header.php";
-
 //define base path, root path of our application
 define('BP', dirname(__DIR__) . '/');
 
