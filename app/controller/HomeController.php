@@ -7,11 +7,9 @@ class HomeController extends BaseController
 {
     public function out()
     {
-        return $this->render_view('out:home', 1);
+        $this->render_view("out:home");
     }
 
     public function in()
-    {
-
-    }
+    {}
 }

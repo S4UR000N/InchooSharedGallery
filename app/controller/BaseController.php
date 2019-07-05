@@ -6,62 +6,20 @@ namespace app\controller;
 abstract class BaseController
 {
 
-/**
- * @param int $int
- * @return string
- *
- * string:
- * go back $int directories from current directory
- */
-public function dir_back(int $int)
-{
-    $path = "";
-
-    //get directories
-    $dirs = explode("\\", __DIR__);
-
-    // remove (i) directories
-    for($i = 0; $i < $int; $i++)
-    {
-        array_pop($dirs);
-    }
-
-    // build path
-    for($i = 0; $i < count($dirs); $i++)
-    {
-        if($path === "")
-        {
-            $path .= $dirs[$i];
-        }
-        else
-        {
-            $path .= "/" . $dirs[$i];
-        }
-    }
-
-    // return path
-    return $path;
-}
-
-//render View, Parameter: 1 => Folder:File, 2 => num of dir lvls to reach "app", 3 => Pass any Data to View
+//render View, Parameter: 1 => Folder:File, 2 => Pass any Data to View
 /**
  * @param string $view Folder:File
- * @param int $int dir up to reach app folder
  * @param array $viewData
  * @return mixed
  *
- * mixed: require __DIR_/app/view/Folder(optional)/File.php => arg1 (Folder:File)
+ * mixed: require __DIR__/app/view/Folder(optional)/File.php (first argument example)
  */
-public function render_view(string $view, int $int = 0, $viewData = array())
+public function render_view(string $view, $viewData = array())
 {
-    //get base path
-    if($int)
-    {
-        $path = $this->dir_back($int);
-    }
+    //make path to view
+    $path = BP . "/app/view";
 
-    //set full path
-    $path .= "/view";
+    //set full path;
     $render = explode(":", $view);
     foreach($render as $bind)
     {
@@ -71,6 +29,6 @@ public function render_view(string $view, int $int = 0, $viewData = array())
     $path .= ".php";
 
     //render view
-    return require_once $path;
+    require_once $path;
     }
 }
