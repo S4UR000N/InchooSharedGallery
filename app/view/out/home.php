@@ -64,7 +64,7 @@
 <img id="coverimg" src="resources/assets/images/world.jpg" style="width: 100%; position: absolute;"/>
 
 <!-- Trigger Ajax Button -->
-<button id="coverbtn" class="btn btn-dark btn-lg" style="color: white; position: relative; left: 46%; bottom: 10%" onclick="AjaxGetAllFiles();">Click Me (:</button>
+<button id="coverbtn" class="btn btn-dark btn-lg bg-white text-primary border border-white" style="position: relative; left: 46%; bottom: 10%" onclick="AjaxGetAllFiles();">Click Me (:</button>
 
 <!-- Script -->
 <script src="resources/js/controller.js"></script>

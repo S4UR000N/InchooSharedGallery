@@ -5,9 +5,39 @@ namespace app\extra;
 
 final class Request
 {
+    /**
+     * return $_GET
+     */
+    public static function get()
+    {
+        $get = new \app\super\Get();
+        return $get->getGetDatasArray();
+    }
+
+    /**
+     * return $_POST
+     */
+    public static function post()
+    {
+        $post = new \app\super\Post();
+        return $post->getPostDatasArray();
+    }
+
+    /**
+     * return $_SESSION
+     */
+    public static function session()
+    {
+        $session = new \app\super\Session();
+        return $session->getSessionDatasArray();
+    }
+
+    /**
+     * returns true if there is (/path)
+     * returns false if root path (/)
+     */
     public static function pathinfo()
     {
-        //returns True if there is (/path) and False if root path (/)
         $server = new \app\super\Server();
         return $server->getRedirectURL();
     }

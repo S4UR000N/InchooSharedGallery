@@ -26,4 +26,9 @@ final class Session
         }
         return false;
     }
+
+    public function getSessionDatasArray()
+    {
+        return $this->get;
+    }
 }
