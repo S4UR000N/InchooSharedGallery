@@ -29,7 +29,7 @@ final class Request
     public static function session()
     {
         $session = new \app\super\Session();
-        return $session->getSessionDatasArray();
+        return $session;
     }
 
     /**

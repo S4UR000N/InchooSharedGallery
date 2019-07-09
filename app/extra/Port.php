@@ -48,6 +48,7 @@ final class Port
         if(class_exists($controller))
         {
             $controller = new $controller;
+
         }
         else
         {

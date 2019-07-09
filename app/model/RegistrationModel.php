@@ -105,14 +105,14 @@ class RegistrationModel extends UserModel
             // if Form not fully correct pass Valid and Error Data
             if(!empty($err_data))
             {
-                $this->render_view("in:registration", $viewData);
+                $parentObject->render_view("in:registration", $viewData);
             }
 
             // else Save User & redirect
             else
             {
                 // open DB connection
-                $userRepo = new \repository\UserRepository();
+                $userRepo = new \app\repository\UserRepository();
 
                 // Save User
                 $user = new \app\model\UserModel();

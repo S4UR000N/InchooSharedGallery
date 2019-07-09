@@ -19,6 +19,11 @@ class UserController extends BaseController
 
     public function logout()
     {
-        echo "logout";
+        new \app\model\LogoutModel();
+    }
+
+    public function management() {
+        $managementModel = new \app\model\ManagementModel();
+        $managementModel->management($this);
     }
 }

@@ -5,8 +5,7 @@ namespace app\super;
 
 final class Session
 {
-    private $session;
-
+    // Singleton
     public function __construct()
     {
         //start session if it's not already running
@@ -14,21 +13,37 @@ final class Session
         {
             session_start();
         }
-
-        //add $_SESSION to our $session property
-        $this->session = $_SESSION;
+    }
+    public static function session() {
+        static $instance = null;
+        if($instance === null)
+        {
+            return $instance = new self();
+        }
+        return $instance;
     }
 
+    // Setter
+    public function set($key, $val)
+    {
+        $_SESSION[$key] = $val;
+    }
+
+    // Getter
+    public function get($key, $default = null)
+    {
+        if(isset($_SESSION[$key])) {
+            return $_SESSION[$key];
+        }
+        return $default;
+    }
+
+    // Check if user id is set
     public function isSet() {
-        if(array_key_exists("user_id", $this->session))
+        if(array_key_exists("user_id", $_SESSION))
         {
             return true;
         }
         return false;
-    }
-
-    public function getSessionDatasArray()
-    {
-        return $this->get;
     }
 }

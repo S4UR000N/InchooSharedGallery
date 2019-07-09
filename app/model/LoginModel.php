@@ -78,7 +78,7 @@ class LoginModel extends UserModel
             // if Form not fully correct pass Valid and Error Data
             if(!empty($err_data))
             {
-                $this->render_view("in:login", $viewData);
+                $parentObject->render_view("in:login", $viewData);
             }
             // else Set Session and Redirect
             else
@@ -92,11 +92,11 @@ class LoginModel extends UserModel
                 $user_check = $userRepo->selectOneByEmailAndPassword($user_email, $user_password)->fetch(\PDO::FETCH_ASSOC);
 
                 // Set Session
-                $session['user_id'] = $user_check['user_id'];
-                $session['user_name'] = $user_check['user_name'];
+                $session->set('user_id', $user_check['user_id']);
+                $session->set('user_name', $user_check['user_name']);
 
                 // Redirect
-                header("location: location: http://shared-gallery.loc/");
+                header("location: http://shared-gallery.loc/");
             }
         }
     }

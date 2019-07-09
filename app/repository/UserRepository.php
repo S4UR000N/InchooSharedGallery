@@ -18,7 +18,7 @@ class UserRepository extends BaseRepository {
 		if($original_pass == $changed_pass) { return false; }
 		return true;
 	}
-	public function saveUser(app\model\UserModel $user) {
+	public function saveUser(\app\model\UserModel $user) {
 		$statement = $this->con->prepare("INSERT INTO users (user_name, user_email, user_password) VALUES (:user_name, :user_email, :user_password)");
 
 		$user_name = $user->getUserName();

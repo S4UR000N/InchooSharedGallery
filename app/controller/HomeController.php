@@ -11,5 +11,7 @@ class HomeController extends BaseController
     }
 
     public function in()
-    {}
+    {
+        echo "you are loged in";
+    }
 }
