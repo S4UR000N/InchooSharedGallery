@@ -42,7 +42,7 @@ final class Request
     }
 
     /**
-     * returns true if there is (/path)
+     * returns path if there is (/path)
      * returns false if root path (/)
      */
     public static function pathinfo()

@@ -10,7 +10,7 @@ final class Port
     public static function open()
     {
         // is this AJAX Call? if it is then do NOT load Header
-        if(Request::pathInfo() === false || Request::pathInfo() === true && strpos(Request::pathInfo(), "ajax") === true)
+        if(Request::pathInfo() === false || Request::pathInfo() !== false && !strpos(Request::pathInfo(), "ajax") !== false)
         {
             //load Basic HTML
             \app\layout\LayoutLoader::loadBasicHTML();
