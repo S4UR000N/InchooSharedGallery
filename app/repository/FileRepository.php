@@ -1,10 +1,17 @@
 <?php
 
 // namespace
-namespace Repository;
+namespace app\repository;
 
 // class
 class FileRepository extends BaseRepository {
+
+    /**
+     * @param array $viewData
+     * @return array|bool
+     * returns array if file is NOT valid
+     * returns false if file IS valid
+     */
 	public function validateFile(array $viewData = array()) {
 		// Error Boolean
 		$err_bool = 0;
@@ -36,16 +43,16 @@ class FileRepository extends BaseRepository {
 		return $viewData;
 	}
 	public function selectAllFiles() {
-		$DB = $this->pdoConnection->query("SELECT users.user_id, users.user_name, users.user_email, files.file_id, files.file_name FROM users JOIN files ON users.user_id = files.user_id")->fetchAll(\PDO::FETCH_ASSOC);
+		$DB = $this->con->query("SELECT users.user_id, users.user_name, users.user_email, files.file_id, files.file_name FROM users JOIN files ON users.user_id = files.user_id")->fetchAll(\PDO::FETCH_ASSOC);
 		return $DB;
 	}
 	public function selectUserFilesUnionOtherFiles($viewData = null) {
 		// Get All Image Files of the User and Other Users
-		$DB = $this->pdoConnection->query("SELECT * FROM files WHERE user_id = {$_SESSION['user_id']} UNION SELECT * FROM files WHERE user_id != {$_SESSION['user_id']}")->fetchAll(\PDO::FETCH_ASSOC);
+		$DB = $this->con->query("SELECT * FROM files WHERE user_id = {$_SESSION['user_id']} UNION SELECT * FROM files WHERE user_id != {$_SESSION['user_id']}")->fetchAll(\PDO::FETCH_ASSOC);
 		return $DB;
 	}
-	public function saveFile(\Model\FileModel $file) {
-		$statement = $this->pdoConnection->prepare("INSERT INTO files (user_id, file_name) VALUES (:user_id, :file_name)");
+	public function saveFile(\app\model\FileModel $file) {
+		$statement = $this->con->prepare("INSERT INTO files (user_id, file_name) VALUES (:user_id, :file_name)");
 
 		$user_id = $file->getUserId();
 		$file_name = $file->getFileName();
@@ -57,7 +64,7 @@ class FileRepository extends BaseRepository {
 		return $result;
 	}
 	public function deleteFile($user_id, $file_id) {
-		$DB = $this->pdoConnection->query("DELETE FROM files WHERE user_id = $user_id AND file_id = $file_id");
+		$DB = $this->con->query("DELETE FROM files WHERE user_id = $user_id AND file_id = $file_id");
 		return $DB->rowCount();
 	}
 }

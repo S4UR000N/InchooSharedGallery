@@ -10,7 +10,7 @@ class RegistrationModel extends UserModel
         //on GET request execute if | on POST request excecute else
         if(!\app\extra\Request::requestMethod())
         {
-            $parentObject->render_view("in:registration");
+            $parentObject->render_view("out:registration");
         }
         else
         {
@@ -105,7 +105,7 @@ class RegistrationModel extends UserModel
             // if Form not fully correct pass Valid and Error Data
             if(!empty($err_data))
             {
-                $parentObject->render_view("in:registration", $viewData);
+                $parentObject->render_view("out:registration", $viewData);
             }
 
             // else Save User & redirect

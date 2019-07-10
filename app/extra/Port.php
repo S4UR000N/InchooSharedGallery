@@ -9,11 +9,15 @@ final class Port
 {
     public static function open()
     {
-        //load Basic HTML
-        \app\layout\LayoutLoader::loadBasicHTML();
+        // is this AJAX Call? if it is then do NOT load Header
+        if(Request::pathInfo() === false || Request::pathInfo() === true && strpos(Request::pathInfo(), "ajax") === true)
+        {
+            //load Basic HTML
+            \app\layout\LayoutLoader::loadBasicHTML();
 
-        //load Header
-        \app\layout\LayoutLoader::loadHeader();
+            //load Header
+            \app\layout\LayoutLoader::loadHeader();
+        }
 
         //get path and remove '/'
         $path = Request::pathInfo();

@@ -5,6 +5,9 @@ namespace app\controller;
 
 class UserController extends BaseController
 {
+    // View Data
+    public $viewData = array();
+
     public function registration()
     {
         $registrationModel = new \app\model\RegistrationModel();

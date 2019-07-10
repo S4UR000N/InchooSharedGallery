@@ -12,6 +12,6 @@ class HomeController extends BaseController
 
     public function in()
     {
-        echo "you are loged in";
+        $this->render_view("in:home");
     }
 }

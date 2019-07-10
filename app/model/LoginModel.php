@@ -8,7 +8,7 @@ class LoginModel extends UserModel
     public function login(\app\controller\UserController $parentObject)
     {
         if (!\app\extra\Request::requestMethod()) {
-            $parentObject->render_view("in:login");
+            $parentObject->render_view("out:login");
         }
         else
         {
@@ -78,7 +78,7 @@ class LoginModel extends UserModel
             // if Form not fully correct pass Valid and Error Data
             if(!empty($err_data))
             {
-                $parentObject->render_view("in:login", $viewData);
+                $parentObject->render_view("out:login", $viewData);
             }
             // else Set Session and Redirect
             else

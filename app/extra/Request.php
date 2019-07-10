@@ -24,6 +24,15 @@ final class Request
     }
 
     /**
+     * return $_FILES
+     */
+    public static function files()
+    {
+        $files = new \app\super\Files();
+        return $files;
+    }
+
+    /**
      * return $_SESSION
      */
     public static function session()
@@ -60,5 +69,15 @@ final class Request
     {
         $session = new \app\super\Session();
         return $session->isSet();
+    }
+
+    /**
+     * return $_FILES as array
+     */
+    public static function filesAsArray()
+    {
+        $files = new \app\super\Files();
+        $files->filesAsArray();
+        return $files;
     }
 }
