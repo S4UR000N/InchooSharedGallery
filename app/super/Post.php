@@ -5,16 +5,32 @@ namespace app\super;
 
 final class Post
 {
-    private $post;
-
-    public function __construct()
-    {
-        //add $_POST to our $post property
-        $this->post = $_POST;
+    public static function post() {
+        static $instance = null;
+        if($instance === null)
+        {
+            return $instance = new self();
+        }
+        return $instance;
     }
 
-    public function getPostDatasArray()
+    // Setter
+    public function set($key, $val)
     {
-        return $this->post;
+        $_POST[$key] = $val;
+    }
+
+    // Getter
+    public function get($key, $default = null)
+    {
+        if(isset($_POST[$key])) {
+            return $_POST[$key];
+        }
+        return $default;
+    }
+
+    public function getPost()
+    {
+        return $_POST;
     }
 }

@@ -16,7 +16,7 @@ class LoginModel extends UserModel
             $post = new \app\super\Post();
             $session = new \app\super\Session();
 
-            $post = $post->getPostDatasArray();
+            $post = $post->getPost();
 
             
             // Final View Data

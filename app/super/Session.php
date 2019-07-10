@@ -38,7 +38,6 @@ final class Session
         return $default;
     }
 
-    // Check if user id is set
     public function isSet() {
         if(array_key_exists("user_id", $_SESSION))
         {

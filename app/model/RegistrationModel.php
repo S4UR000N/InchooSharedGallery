@@ -16,7 +16,7 @@ class RegistrationModel extends UserModel
         {
             // store $post
             $post = new \app\super\Post();
-            $post = $post->getPostDatasArray();
+            $post = $post->getPost();
 
             // Final View Data
             $viewData = array(

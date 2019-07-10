@@ -5,13 +5,12 @@ namespace app\super;
 
 final class Files
 {
-    private $files;
-
     // Singleton
     public static function files()
     {
         static $instance = null;
-        if ($instance === null) {
+        if($instance === null)
+        {
             return $instance = new self();
         }
         return $instance;
@@ -26,8 +25,7 @@ final class Files
         return false;
     }
 
-    public function filesAsArray() {
-        $this->files = $_FILES;
-        return $this->files;
+    public function getFiles() {
+        return $_FILES;
     }
 }
