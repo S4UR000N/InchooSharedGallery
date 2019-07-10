@@ -30,7 +30,7 @@ if(array_key_exists("AccountRemovalFailed", $viewData)) {
      <?php echo "<input type='text' name='remove_account' value='" . $_SESSION['user_id'] . "'/>"; ?>
      <div class="btn-group">
       <button class='btn bg-dark text-light' type='submit' style="font-size: 20px;">Confirm</button>
-      <button class='btn bg-warning' type='button' data-dismiss="modal" style="font-size: 20px;">Cancel</button>
+      <button class='btn bg-danger text-light' type='button' data-dismiss="modal" style="font-size: 20px;">Cancel</button>
      </div>
     </form>
    </div>

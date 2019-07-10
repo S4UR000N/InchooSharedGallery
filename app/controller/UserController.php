@@ -29,4 +29,8 @@ class UserController extends BaseController
         $managementModel = new \app\model\ManagementModel();
         $managementModel->management($this);
     }
+    public function myaccount() {
+        $myaccountModel = new \app\model\MyaccountModel();
+        $myaccountModel->myaccount($this);
+    }
 }
