@@ -12,9 +12,4 @@ final class Get
         //add $_Get to our $get property
         $this->get = $_GET;
     }
-
-    public function getGetDatasArray()
-    {
-        return $this->get;
-    }
 }

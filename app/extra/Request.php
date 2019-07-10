@@ -6,15 +6,6 @@ namespace app\extra;
 final class Request
 {
     /**
-     * return $_GET
-     */
-    public static function get()
-    {
-        $get = new \app\super\Get();
-        return $get->getGetDatasArray();
-    }
-
-    /**
      * return $_POST
      */
     public static function post()

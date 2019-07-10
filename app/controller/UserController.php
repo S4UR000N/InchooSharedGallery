@@ -7,6 +7,21 @@ class UserController extends BaseController
 {
     // View Data
     public $viewData = array();
+    protected $get;
+    protected $post;
+    protected $files;
+    protected $server;
+    protected $session;
+
+    public function __construct()
+    {
+        $this->get = new \app\super\Get();
+        $this->post = new \app\super\Post();
+        $this->files = new \app\super\Files();
+        $this->server = new \app\super\Server();
+        $this->session = new \app\super\Session();
+    }
+
 
     public function registration()
     {

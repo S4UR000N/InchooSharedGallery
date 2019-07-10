@@ -13,8 +13,11 @@ class LoginModel extends UserModel
         else
         {
             /// store $post & $session
-            $post = \app\extra\Request::post();
-            $session = \app\extra\Request::session();
+            $post = new \app\super\Post();
+            $session = new \app\super\Session();
+
+            $post = $post->getPostDatasArray();
+
             
             // Final View Data
             $viewData = array(
