@@ -8,19 +8,15 @@ use \PDO;
 
 final class Connection
 {
-    // constants
-    const SERVER_NAME = 'localhost';
-    const USERNAME = 'root';
-    const PASSWORD = 'toor';
-    const DATABASE_NAME = 'inchoo';
-
     // properties
+    private $cred;
     private $con;
 
     // constructor
     private function __construct()
     {
-        $this->con = new PDO("mysql:host=" . self::SERVER_NAME . ";dbname=" . self::DATABASE_NAME, self::USERNAME, self::PASSWORD);
+        $this->cred = require "../env/conf.php";
+        $this->con = new PDO("mysql:host=" . $this->cred['SERVER_NAME'] . ";dbname=" . $this->cred['DATABASE_NAME'], $this->cred['USERNAME'], $this->cred['PASSWORD']);
         $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 

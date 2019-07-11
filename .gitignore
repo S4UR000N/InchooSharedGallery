@@ -1,3 +1,4 @@
+env/conf.php
 .idea/
 public/.htacess
 app/Connection.php
