@@ -10,12 +10,14 @@ class UserController extends BaseController
 
     public function registration()
     {
+        $this->denyIn();
         $registrationModel = new \app\model\RegistrationModel();
         $registrationModel->registration($this);
     }
 
     public function login()
     {
+        $this->denyIn();
         $loginModel = new \app\model\LoginModel();
         $loginModel->login($this);
     }
@@ -25,11 +27,15 @@ class UserController extends BaseController
         new \app\model\LogoutModel();
     }
 
-    public function management() {
+    public function management()
+    {
+        $this->denyOut();
         $managementModel = new \app\model\ManagementModel();
         $managementModel->management($this);
     }
-    public function myaccount() {
+    public function myaccount()
+    {
+        $this->denyOut();
         $myaccountModel = new \app\model\MyaccountModel();
         $myaccountModel->myaccount($this);
     }

@@ -5,30 +5,48 @@ namespace app\controller;
 
 abstract class BaseController
 {
-
-//render View, Parameter: 1 => Folder:File, 2 => Pass any Data to View
-/**
- * @param string $view Folder:File
- * @param array $viewData
- * @return mixed
- *
- * mixed: require __DIR__/app/view/Folder(optional)/File.php (first argument example)
- */
-public function render_view(string $view, $viewData = array())
-{
-    //make path to view
-    $path = BP . "/app/view";
-
-    //set full path;
-    $render = explode(":", $view);
-    foreach($render as $bind)
+    /**
+     * deny access for loged in users
+     */
+    public function denyIn()
     {
-        $path .=  "/" . $bind;
+        if(\app\super\Session::isSet()) {
+            return header("location: http://shared-gallery.loc/");
+        }
+    }
+    /**
+     * deny access for non loged in users
+     */
+    public function denyOut()
+    {
+        if(!\app\super\Session::isSet()) {
+            return header("location: http://shared-gallery.loc/");
+        }
     }
 
-    $path .= ".php";
+    //render View, Parameter: 1 => Folder:File, 2 => Pass any Data to View
+    /**
+     * @param string $view Folder:File
+     * @param array $viewData
+     * @return mixed
+     *
+     * mixed: require __DIR__/app/view/Folder(optional)/File.php (first argument example)
+     */
+    public function render_view(string $view, $viewData = array())
+    {
+        //make path to view
+        $path = BP . "/app/view";
 
-    //render view
-    require_once $path;
+        //set full path;
+        $render = explode(":", $view);
+        foreach($render as $bind)
+        {
+            $path .=  "/" . $bind;
+        }
+
+        $path .= ".php";
+
+        //render view
+        require_once $path;
     }
 }

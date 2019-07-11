@@ -7,11 +7,6 @@ class LoginModel extends UserModel
 {
     public function login(\app\controller\UserController $parentObject)
     {
-        // deny access for loged in users
-        if(\app\super\Session::isSet()) {
-            return header("location: http://shared-gallery.loc/");
-        }
-
         if (!\app\extra\Request::requestMethod()) {
             $parentObject->render_view("out:login");
         }
