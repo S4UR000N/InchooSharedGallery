@@ -15,10 +15,16 @@ class MyaccountModel extends UserModel
         }
         else
         {
-            if(array_key_exists('remove_account', $_POST))
+            /* Get Superglobals */
+            $post = new \app\super\Post();
+            $session = new \app\super\Session();
+
+            $post = $post->getPost();
+
+            if(array_key_exists('remove_account', $post))
             {
                 $userRepo = new \app\repository\UserRepository();
-                $result = $userRepo->removeAccount($_SESSION['user_id']);
+                $result = $userRepo->removeAccount($session->get('user_id'));
                 if($result)
                 {
                     session_destroy(); header("location: http://shared-gallery.loc/");
@@ -41,14 +47,14 @@ class MyaccountModel extends UserModel
                 $err_data = array();
 
                 // Error Checking
-                foreach($_POST as $err)
+                foreach($post as $err)
                 {
                     if(!in_array("1", $err_data) && empty($err))
                     {
                         array_push($err_data, "1");
                     }
                 }
-                if(!empty($_POST['user_change_password']) && $_POST['user_change_password'] !== $_POST['user_confirm_changed_password'])
+                if(!empty($post['user_change_password']) && $post['user_change_password'] !== $post['user_confirm_changed_password'])
                 {
                     array_push($err_data, "2");
                 }
@@ -67,7 +73,7 @@ class MyaccountModel extends UserModel
                 else
                 {
                     $userRepo = new \app\repository\UserRepository();
-                    $result = $userRepo->changePassword($_SESSION['user_id'], $_POST['user_change_password']);
+                    $result = $userRepo->changePassword($session->get('user_id'), $post['user_change_password']);
                     if($result) { $parentObject->viewData['Valid'] = true; }
                     else { $parentObject->viewData['Valid'] = false; }
                     $parentObject->render_view("in:myaccount", $parentObject->viewData);
