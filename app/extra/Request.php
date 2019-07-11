@@ -6,33 +6,6 @@ namespace app\extra;
 final class Request
 {
     /**
-     * return $_POST
-     */
-    public static function post()
-    {
-        $post = new \app\super\Post();
-        return $post->getPostDatasArray();
-    }
-
-    /**
-     * return $_FILES
-     */
-    public static function files()
-    {
-        $files = new \app\super\Files();
-        return $files;
-    }
-
-    /**
-     * return $_SESSION
-     */
-    public static function session()
-    {
-        $session = new \app\super\Session();
-        return $session;
-    }
-
-    /**
      * returns path if there is (/path)
      * returns false if root path (/)
      */
@@ -60,15 +33,5 @@ final class Request
     {
         $session = new \app\super\Session();
         return $session->isSet();
-    }
-
-    /**
-     * return $_FILES as array
-     */
-    public static function filesAsArray()
-    {
-        $files = new \app\super\Files();
-        $files->filesAsArray();
-        return $files;
     }
 }

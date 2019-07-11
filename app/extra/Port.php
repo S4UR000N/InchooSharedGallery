@@ -9,16 +9,6 @@ final class Port
 {
     public static function open()
     {
-        // is this AJAX Call? if it is then do NOT load Header
-        if(Request::pathInfo() === false || Request::pathInfo() !== false && !strpos(Request::pathInfo(), "ajax") !== false)
-        {
-            //load Basic HTML
-            \app\layout\LayoutLoader::loadBasicHTML();
-
-            //load Header
-            \app\layout\LayoutLoader::loadHeader();
-        }
-
         //get path and remove '/'
         $path = Request::pathInfo();
         $path = trim($path, '/');
@@ -59,9 +49,20 @@ final class Port
             header("HTTP/1.0 404 Not Found");
         }
 
-        // run method
+        // load Header & run method
         if(method_exists($controller, $method))
         {
+            // is this AJAX Call? if it is then do NOT load Header
+            if(Request::pathInfo() === false || Request::pathInfo() !== false && !strpos(Request::pathInfo(), "ajax") !== false)
+            {
+                //load Basic HTML
+                \app\layout\LayoutLoader::loadBasicHTML();
+
+                //load Header
+                \app\layout\LayoutLoader::loadHeader();
+            }
+
+            // run methods
             $controller->$method();
         }
         else
