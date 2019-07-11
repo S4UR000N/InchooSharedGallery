@@ -5,6 +5,9 @@ namespace app\super;
 
 final class Session
 {
+    // properties
+    private static $inst = null;
+    
     // Singleton
     public function __construct()
     {
@@ -15,12 +18,11 @@ final class Session
         }
     }
     public static function session() {
-        static $instance = null;
-        if($instance === null)
+        if(self::$inst === null)
         {
-            return $instance = new self();
+            return self::$inst = new self();
         }
-        return $instance;
+        return self::$inst;
     }
 
     // Setter

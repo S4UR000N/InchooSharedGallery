@@ -5,13 +5,16 @@ namespace app\super;
 
 final class Post
 {
+    // properties
+    private static $inst = null;
+
+    // Singleton
     public static function post() {
-        static $instance = null;
-        if($instance === null)
+        if(self::$inst === null)
         {
-            return $instance = new self();
+            return self::$inst = new self();
         }
-        return $instance;
+        return self::$inst;
     }
 
     // Setter

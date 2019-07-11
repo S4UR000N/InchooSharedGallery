@@ -5,15 +5,17 @@ namespace app\super;
 
 final class Files
 {
+    // properties
+    private static $inst = null;
+    
     // Singleton
     public static function files()
     {
-        static $instance = null;
-        if($instance === null)
+        if(self::$inst === null)
         {
-            return $instance = new self();
+            return self::$inst = new self();
         }
-        return $instance;
+        return self::$inst;
     }
 
     // Getter
