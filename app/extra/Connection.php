@@ -9,6 +9,7 @@ use \PDO;
 final class Connection
 {
     // properties
+    private static $inst = null;
     private $cred;
     private $con;
 
@@ -22,12 +23,11 @@ final class Connection
 
     // singleton
     public static function getInstance() {
-        static $instance = null;
-        if($instance === null)
+        if(self::$inst === null)
         {
-            $instance = new self();
+            self::$inst = new self();
         }
-        return $instance;
+        return self::$inst;
     }
 
     public function getCon()
