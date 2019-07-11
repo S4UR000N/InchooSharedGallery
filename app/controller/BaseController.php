@@ -11,7 +11,8 @@ abstract class BaseController
     public function denyIn()
     {
         if(\app\super\Session::isSet()) {
-            return header("location: http://shared-gallery.loc/");
+            require "error/404.php";
+            die();
         }
     }
     /**
@@ -20,7 +21,8 @@ abstract class BaseController
     public function denyOut()
     {
         if(!\app\super\Session::isSet()) {
-            return header("location: http://shared-gallery.loc/");
+            require "error/404.php";
+            die();
         }
     }
 
