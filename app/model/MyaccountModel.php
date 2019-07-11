@@ -7,6 +7,11 @@ class MyaccountModel extends UserModel
 {
     public function myaccount(\app\controller\UserController $parentObject)
     {
+        // deny access for non loged in users
+        if(!\app\super\Session::isSet()) {
+            return header("location: http://shared-gallery.loc/");
+        }
+
         //on GET request execute if | on POST request excecute else
         // Regular Render Branch
         if (!\app\extra\Request::requestMethod())

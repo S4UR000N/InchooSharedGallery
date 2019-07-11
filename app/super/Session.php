@@ -38,7 +38,7 @@ final class Session
         return $default;
     }
 
-    public function isSet() {
+    public static function isSet() {
         if(array_key_exists("user_id", $_SESSION))
         {
             return true;

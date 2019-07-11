@@ -7,6 +7,11 @@ class RegistrationModel extends UserModel
 {
     public function registration(\app\controller\UserController $parentObject)
     {
+        // deny access for loged in users
+        if(\app\super\Session::isSet()) {
+            return header("location: http://shared-gallery.loc/");
+        }
+
         //on GET request execute if | on POST request excecute else
         if(!\app\extra\Request::requestMethod())
         {
