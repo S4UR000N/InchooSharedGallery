@@ -60,7 +60,7 @@ class ManagementModel extends UserModel
             }
         }
         // Delete File Branch
-        else if(array_key_exists('file_id', $_POST)) {
+        else if(array_key_exists('file_id', $post)) {
             $parentObject->viewData['deleted'] = false;
             $fileRepo = new \app\repository\FileRepository();
             $isDeleted = $fileRepo->deleteFile($post['user_id'], $post['file_id']);
