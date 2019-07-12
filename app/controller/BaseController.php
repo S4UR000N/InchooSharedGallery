@@ -10,20 +10,14 @@ abstract class BaseController
      */
     public function denyIn()
     {
-        if(\app\super\Session::isSet()) {
-            require "error/404.php";
-            die();
-        }
+        \app\extra\ErrorHandler::call401(\app\super\Session::isSet());
     }
     /**
      * deny access for non loged in users
      */
     public function denyOut()
     {
-        if(!\app\super\Session::isSet()) {
-            require "error/404.php";
-            die();
-        }
+        \app\extra\ErrorHandler::call401(!\app\super\Session::isSet());
     }
 
     //render View, Parameter: 1 => Folder:File, 2 => Pass any Data to View

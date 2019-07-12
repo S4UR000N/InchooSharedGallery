@@ -46,7 +46,9 @@ final class Port
         }
         else
         {
-            header("HTTP/1.0 404 Not Found");
+            //load Basic HTML
+            \app\layout\LayoutLoader::loadBasicHTML();
+            return \app\extra\ErrorHandler::call404();
         }
 
         // load Header & run method
@@ -67,8 +69,9 @@ final class Port
         }
         else
         {
-            header("HTTP/1.0 404 Not Found");
-
+        //load Basic HTML
+        \app\layout\LayoutLoader::loadBasicHTML();
+        return \app\extra\ErrorHandler::call404();
         }
     }
 }
