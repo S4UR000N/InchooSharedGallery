@@ -15,9 +15,24 @@ spl_autoload_register(function ($classname) {
 });
 
 // enable 500 - Internal server error
-function error_handler_argument_zip() { \app\layout\LayoutLoader::loadBasicHTML(); \app\extra\ErrorHandler::call500(); }
-set_error_handler('error_handler_argument_zip');
-set_exception_handler('error_handler_argument_zip');
+function error_handler_argument_zip()
+{
+
+
+    \app\extra\ErrorHandler::myErrorHandler();
+    \app\extra\ErrorHandler::call500($rand, $datetime);
+}
+function errorHandler($errno, $errstr, $errfile, $errline) {
+    throw new Exception($errstr);
+}
+function exceptionHandler($e)
+{
+    \app\extra\ErrorHandler::saveInErrorsLog($e);
+    \app\layout\LayoutLoader::loadBasicHTML();
+    \app\extra\ErrorHandler::call500();
+}
+set_error_handler('errorHandler');
+set_exception_handler('exceptionHandler');
 
 //start app
 app\extra\Port::open();

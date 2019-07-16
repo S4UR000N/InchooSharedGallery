@@ -1,0 +1,110 @@
+
+
+Date is: 2019.07.16./14:13:33
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+ParseError: syntax error, unexpected '$path' (T_VARIABLE) in /home/robert/Public/shared-gallery.loc/app/extra/Port.php:13
+Stack trace:
+#0 [internal function]: {closure}('app\\extra\\Port')
+#1 /home/robert/Public/shared-gallery.loc/public/index.php(38): spl_autoload_call('app\\extra\\Port')
+#2 {main}
+
+
+Date is: 2019.07.16./14:13:33
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+ParseError: syntax error, unexpected '$path' (T_VARIABLE) in /home/robert/Public/shared-gallery.loc/app/extra/Port.php:13
+Stack trace:
+#0 [internal function]: {closure}('app\\extra\\Port')
+#1 /home/robert/Public/shared-gallery.loc/public/index.php(38): spl_autoload_call('app\\extra\\Port')
+#2 {main}
+
+
+Date is: 2019.07.16./14:13:55
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+ParseError: syntax error, unexpected '$path' (T_VARIABLE) in /home/robert/Public/shared-gallery.loc/app/extra/Port.php:13
+Stack trace:
+#0 [internal function]: {closure}('app\\extra\\Port')
+#1 /home/robert/Public/shared-gallery.loc/public/index.php(38): spl_autoload_call('app\\extra\\Port')
+#2 {main}
+
+
+Date is: 2019.07.16./14:13:55
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+ParseError: syntax error, unexpected '$path' (T_VARIABLE) in /home/robert/Public/shared-gallery.loc/app/extra/Port.php:13
+Stack trace:
+#0 [internal function]: {closure}('app\\extra\\Port')
+#1 /home/robert/Public/shared-gallery.loc/public/index.php(38): spl_autoload_call('app\\extra\\Port')
+#2 {main}
+
+

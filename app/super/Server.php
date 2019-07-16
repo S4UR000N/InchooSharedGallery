@@ -12,6 +12,10 @@ final class Server
         $this->server = $_SERVER;
     }
 
+    public function getServer()
+    {
+        return $this->server;
+    }
     public function getRedirectURL()
     {
         if(array_key_exists('REDIRECT_URL', $this->server))
