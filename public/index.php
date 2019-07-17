@@ -24,8 +24,8 @@ function exceptionHandler($e)
     \app\layout\LayoutLoader::loadBasicHTML();
     \app\extra\ErrorHandler::call500();
 }
-set_error_handler('errorHandler');
-set_exception_handler('exceptionHandler');
+//set_error_handler('errorHandler');
+//set_exception_handler('exceptionHandler');
 
 //start app
 app\extra\Port::open();

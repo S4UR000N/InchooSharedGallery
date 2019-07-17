@@ -222,3 +222,296 @@ Stack trace:
 #3 {main}
 
 
+Date is: 2019.07.17./10:30:04
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function fetch() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:9
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('omg')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./10:43:25
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? LIMIT 1' at line 1 in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:12
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php(12): PDO->query('SELECT * FROM u...')
+#1 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(65): app\repository\UserRepository->selectOneByEmail('omg@gmail.com')
+#2 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#3 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#4 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#5 {main}
+
+
+Date is: 2019.07.17./11:03:13
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Exception: PDO::setAttribute() expects exactly 2 parameters, 0 given in /home/robert/Public/shared-gallery.loc/public/index.php:19
+Stack trace:
+#0 [internal function]: errorHandler(2, 'PDO::setAttribu...', '/home/robert/Pu...', 9, Array)
+#1 /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php(9): PDO->setAttribute()
+#2 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('omg')
+#3 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#4 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#5 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#6 {main}
+
+
+Date is: 2019.07.17./11:04:04
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function fetchAll() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:9
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('omg')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./11:11:01
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function fetchAll() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:9
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('omg')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./11:21:03
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Class 'app\repository\PDO' not found in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:9
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('newhash')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./11:21:35
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function prepare() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:9
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('newhash')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./11:24:04
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function prepare() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:10
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('a')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./11:38:45
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function fetch() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:10
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('omg')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+
+Date is: 2019.07.17./11:59:28
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function fetch() on boolean in /home/robert/Public/shared-gallery.loc/app/repository/UserRepository.php:10
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/model/RegistrationModel.php(64): app\repository\UserRepository->selectOneByName('omg')
+#1 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(15): app\model\RegistrationModel->registration(Object(app\controller\UserController))
+#2 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->registration()
+#3 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#4 {main}
+
+

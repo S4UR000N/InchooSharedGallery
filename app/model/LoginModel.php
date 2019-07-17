@@ -64,7 +64,7 @@ class LoginModel extends UserModel
                 // check if user exists
                 $user_email = $post['user_email'];
                 $user_password = $post['user_password'];
-                $user_check = $userRepo->selectOneByEmail($user_email);
+                $user_check = $userRepo->selectOneByEmail($user_email)[0];
                 if($user_check)
                 {
                     $user_check = password_verify($user_password, $user_check['user_password']);
@@ -94,7 +94,7 @@ class LoginModel extends UserModel
 
                 // get user id
                 $user_email = $post['user_email'];
-                $user_check = $userRepo->selectOneByEmail($user_email);
+                $user_check = $userRepo->selectOneByEmail($user_email)[0];
 
                 // Set Session
                 $session->set('user_id', $user_check['user_id']);

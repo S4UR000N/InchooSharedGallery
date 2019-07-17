@@ -63,7 +63,6 @@ class RegistrationModel extends UserModel
                 // check if name & email aleready exist
                 $name_check = $userRepo->selectOneByName($post['user_name']);
                 $email_check = $userRepo->selectOneByEmail($post['user_email']);
-
                 if($name_check)
                 {
                     array_push($err_data, "3");

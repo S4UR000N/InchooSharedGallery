@@ -4,11 +4,20 @@
 namespace app\repository;
 
 // class
-class UserRepository extends BaseRepository {
-	public function selectOneByName($user_name) { return $this->con->query("SELECT * FROM users WHERE user_name = '$user_name' LIMIT 1")->fetch(); }
-	public function selectOneByEmail($user_email) { return $this->con->query("SELECT * FROM users WHERE user_email = '$user_email' LIMIT 1")->fetch(); }
-	public function selectOneByEmailAndPassword($user_email, $user_password) {
-		return $this->con->query("SELECT * FROM users WHERE user_email = '$user_email' AND user_password = '$user_password' LIMIT 1");
+class UserRepository extends BaseRepository
+{
+	public function selectOneByName($user_name) {
+        $query = $this->con->prepare("SELECT * FROM users WHERE user_name = ? LIMIT 1");
+        $query->execute([$user_name]);
+        $stmt = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt;
+	}
+	public function selectOneByEmail($user_email)
+    {
+        $query = $this->con->prepare("SELECT * FROM users WHERE user_email = ? LIMIT 1");
+        $query->execute([$user_email]);
+        $stmt = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt;
 	}
 	public function changePassword($user_id, $user_change_password) {
 		$user_change_password = password_hash($user_change_password, PASSWORD_BCRYPT);
@@ -41,7 +50,5 @@ class UserRepository extends BaseRepository {
 			return true;
 		}
 		return false;
-
-
 	}
 }
