@@ -108,3 +108,117 @@ Stack trace:
 #2 {main}
 
 
+Date is: 2019.07.17./08:54:21
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to a member function fetch() on array in /home/robert/Public/shared-gallery.loc/app/model/LoginModel.php:67
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(22): app\model\LoginModel->login(Object(app\controller\UserController))
+#1 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->login()
+#2 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#3 {main}
+
+
+Date is: 2019.07.17./08:57:37
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Exception: password_hash() expects at least 2 parameters, 1 given in /home/robert/Public/shared-gallery.loc/public/index.php:19
+Stack trace:
+#0 [internal function]: errorHandler(2, 'password_hash()...', '/home/robert/Pu...', 98, Array)
+#1 /home/robert/Public/shared-gallery.loc/app/model/LoginModel.php(98): password_hash('new')
+#2 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(22): app\model\LoginModel->login(Object(app\controller\UserController))
+#3 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->login()
+#4 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#5 {main}
+
+
+Date is: 2019.07.17./09:09:28
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to undefined function app\model\vertify_password() in /home/robert/Public/shared-gallery.loc/app/model/LoginModel.php:70
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(22): app\model\LoginModel->login(Object(app\controller\UserController))
+#1 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->login()
+#2 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#3 {main}
+
+
+Date is: 2019.07.17./09:51:32
+User is loged in: false
+URL: http://shared-gallery.loc/
+======Browser info======
+browser_name_regex::~^mozilla/5\.0 \(.*linux.*\) applewebkit.* \(.*khtml.*like.*gecko.*\).*chromium/75\..*chrome/.*safari/.*$~
+browser_name_pattern::Mozilla/5.0 (*Linux*) applewebkit* (*khtml*like*gecko*)*Chromium/75.*Chrome/*Safari/*
+parent::Chromium 75.0
+comment::Chromium 75.0
+browser::Chromium
+browser_maker::Google Inc
+version::75.0
+majorver::75
+platform::Linux
+device_type::Desktop
+device_pointing_method::mouse
+minorver::0
+ismobiledevice::
+istablet::
+crawler::
+======Exception info======
+Error: Call to undefined method app\repository\UserRepository::selectOneBy() in /home/robert/Public/shared-gallery.loc/app/model/LoginModel.php:97
+Stack trace:
+#0 /home/robert/Public/shared-gallery.loc/app/controller/UserController.php(22): app\model\LoginModel->login(Object(app\controller\UserController))
+#1 /home/robert/Public/shared-gallery.loc/app/extra/Port.php(68): app\controller\UserController->login()
+#2 /home/robert/Public/shared-gallery.loc/public/index.php(31): app\extra\Port::open()
+#3 {main}
+
+

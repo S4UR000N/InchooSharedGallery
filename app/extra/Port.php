@@ -8,7 +8,7 @@ use app\layout\LayoutLoader;
 final class Port
 {
     public static function open()
-    {aaa
+    {
         //get path and remove '/'
         $path = Request::pathInfo();
         $path = trim($path, '/');

@@ -11,7 +11,7 @@ class UserRepository extends BaseRepository {
 		return $this->con->query("SELECT * FROM users WHERE user_email = '$user_email' AND user_password = '$user_password' LIMIT 1");
 	}
 	public function changePassword($user_id, $user_change_password) {
-		$user_change_password = md5($user_change_password);
+		$user_change_password = password_hash($user_change_password, PASSWORD_BCRYPT);
 		$original_pass = $this->con->query("SELECT users.user_password FROM users WHERE user_id='$user_id'");
 		$this->con->query("UPDATE users SET user_password='$user_change_password' WHERE user_id = '$user_id'");
 		$changed_pass = $this->con->query("SELECT users.user_password FROM users WHERE user_id='$user_id'");

@@ -63,9 +63,12 @@ class LoginModel extends UserModel
 
                 // check if user exists
                 $user_email = $post['user_email'];
-                $user_password = md5($post['user_password']);
-                $user_check = $userRepo->selectOneByEmailAndPassword($user_email, $user_password)->fetch();
-
+                $user_password = $post['user_password'];
+                $user_check = $userRepo->selectOneByEmail($user_email);
+                if($user_check)
+                {
+                    $user_check = password_verify($user_password, $user_check['user_password']);
+                }
                 if(!$user_check)
                 {
                     array_push($err_data, "3");
@@ -91,8 +94,7 @@ class LoginModel extends UserModel
 
                 // get user id
                 $user_email = $post['user_email'];
-                $user_password = md5($post['user_password']);
-                $user_check = $userRepo->selectOneByEmailAndPassword($user_email, $user_password)->fetch(\PDO::FETCH_ASSOC);
+                $user_check = $userRepo->selectOneByEmail($user_email);
 
                 // Set Session
                 $session->set('user_id', $user_check['user_id']);

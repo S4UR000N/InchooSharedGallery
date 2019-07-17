@@ -14,14 +14,7 @@ spl_autoload_register(function ($classname) {
     if(file_exists($file)) { require_once($file); }
 });
 
-// enable 500 - Internal server error
-function error_handler_argument_zip()
-{
-
-
-    \app\extra\ErrorHandler::myErrorHandler();
-    \app\extra\ErrorHandler::call500($rand, $datetime);
-}
+//enable 500(Internal Server Error)
 function errorHandler($errno, $errstr, $errfile, $errline) {
     throw new Exception($errstr);
 }

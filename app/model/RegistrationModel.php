@@ -119,7 +119,7 @@ class RegistrationModel extends UserModel
                 $user = new \app\model\UserModel();
                 $user->setUserName($post['user_name']);
                 $user->setUserEmail($post['user_email']);
-                $user->setUserPassword(md5($post['user_password']));
+                $user->setUserPassword(password_hash($post['user_password'], PASSWORD_BCRYPT));
                 $userRepo->saveUser($user);
                 header("location: http://shared-gallery.loc/user_login");
             }
