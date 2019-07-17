@@ -9,23 +9,31 @@ class UserRepository extends BaseRepository
 	public function selectOneByName($user_name) {
         $query = $this->con->prepare("SELECT * FROM users WHERE user_name = ? LIMIT 1");
         $query->execute([$user_name]);
-        $stmt = $query->fetchAll(\PDO::FETCH_ASSOC);
-        return $stmt;
+        $query = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $query;
 	}
 	public function selectOneByEmail($user_email)
     {
         $query = $this->con->prepare("SELECT * FROM users WHERE user_email = ? LIMIT 1");
         $query->execute([$user_email]);
-        $stmt = $query->fetchAll(\PDO::FETCH_ASSOC);
-        return $stmt;
+        $query = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $query;
 	}
 	public function changePassword($user_id, $user_change_password) {
-		$user_change_password = password_hash($user_change_password, PASSWORD_BCRYPT);
-		$original_pass = $this->con->query("SELECT users.user_password FROM users WHERE user_id='$user_id'");
-		$this->con->query("UPDATE users SET user_password='$user_change_password' WHERE user_id = '$user_id'");
-		$changed_pass = $this->con->query("SELECT users.user_password FROM users WHERE user_id='$user_id'");
-		if($original_pass == $changed_pass) { return false; }
-		return true;
+        $original_pass = $this->con->prepare("SELECT users.user_password FROM users WHERE user_id = ?");
+        $original_pass->execute([$user_id]);
+        $original_pass = $original_pass->fetchAll(\PDO::FETCH_ASSOC);
+        if(!password_verify($user_change_password, $original_pass[0]['user_password']))
+        {
+            $user_change_password = password_hash($user_change_password, PASSWORD_BCRYPT);
+            $query = $this->con->prepare("UPDATE users SET user_password = ? WHERE user_id = ?");
+            $query = $query->execute([$user_change_password, $user_id]);
+            if($query) {
+                return true;
+            }
+            return false;
+        }
+        return false;
 	}
 	public function saveUser(\app\model\UserModel $user) {
 		$statement = $this->con->prepare("INSERT INTO users (user_name, user_email, user_password) VALUES (:user_name, :user_email, :user_password)");

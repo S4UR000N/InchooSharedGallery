@@ -76,10 +76,10 @@ class MyaccountModel extends UserModel
                     $result = $userRepo->changePassword($session->get('user_id'), $post['user_change_password']);
                     if($result) { $parentObject->viewData['Valid'] = true; }
                     else { $parentObject->viewData['Valid'] = false; }
-                    $parentObject->render_view("in:myaccount", $parentObject->viewData);
+                    return $parentObject->render_view("in:myaccount", $parentObject->viewData);
                 }
             }
-            $parentObject->render_view("in:myaccount", $parentObject->viewData);
+            return $parentObject->render_view("in:myaccount", $parentObject->viewData);
         }
     }
 }

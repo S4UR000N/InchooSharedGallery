@@ -2,11 +2,11 @@
 // Password Change Errors and Feedback
 if(array_key_exists("Valid", $viewData)) {
 	if($viewData['Valid']) { echo '<script>var $alert = "Password Changed!"</script>'; }
-	else if(!$viewData['Valid']) { echo '<script>var $alert = "Password Change Failed!");</script>'; }
+	else if(!$viewData['Valid']) { echo '<script>var $alert = "Password Change Failed!";</script>'; }
 }
 
 if(array_key_exists("AccountRemovalFailed", $viewData)) {
-  if($viewData["AccountRemovalFailed"]) { echo '<script>var $alert = "Account Removal Failed!");</script>'; }
+  if($viewData["AccountRemovalFailed"]) { echo '<script>var $alert = "Account Removal Failed!";</script>'; }
 }
 ?>
 
