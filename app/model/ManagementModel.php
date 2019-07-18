@@ -19,7 +19,6 @@ class ManagementModel extends UserModel
             /* Get Superglobals */
             $post = new \app\super\Post();
             $files = new \app\super\Files();
-            $session = new \app\super\Session();
 
             $post = $post->getPost();
             $files = $files->getFiles();
@@ -32,13 +31,13 @@ class ManagementModel extends UserModel
                 // if true then Upload and Save file or Return fail
                 if (!$invalid) {
                     // Target dir/file/extension
-                    $target_dir = "uploads/" . $session->get('user_id');
+                    $target_dir = "uploads/" . $this->getUserId();
                     $target_file = $target_dir . $files['img_up']['name'];
 
                     // Store File
                     if (move_uploaded_file($files['img_up']['tmp_name'], $target_file)) {
                         $file = new \app\model\FileModel();
-                        $file->setUserId($session->get('user_id'));
+                        $file->setUserId($this->getUserId());
                         $file->setFileName($files['img_up']['name']);
                         $parentObject->viewData['uploaded'] = $fileRepo->saveFile($file);
 
@@ -62,7 +61,7 @@ class ManagementModel extends UserModel
                 $fileRepo = new \app\repository\FileRepository();
                 $isDeleted = $fileRepo->deleteFile($post['user_id'], $post['file_id']);
                 if ($isDeleted) {
-                    $unlink = unlink("uploads/" . $session->get('user_id') . $post['file_name']);
+                    $unlink = unlink("uploads/" . $this->getUserId() . $post['file_name']);
                 }
                 if ($isDeleted > 0 && $unlink) {
                     $this->viewData['deleted'] = true;

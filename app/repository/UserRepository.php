@@ -6,6 +6,12 @@ namespace app\repository;
 // class
 class UserRepository extends BaseRepository
 {
+    public function selectOneById($user_id) {
+        $queryUser = $this->con->prepare("SELECT * FROM users WHERE user_id = ? LIMIT 1");
+        $queryUser->execute([$user_id]);
+        $user = $queryUser->fetchAll(\PDO::FETCH_ASSOC);
+        return $user;
+    }
 	public function selectOneByName($user_name) {
         $query = $this->con->prepare("SELECT * FROM users WHERE user_name = ? LIMIT 1");
         $query->execute([$user_name]);

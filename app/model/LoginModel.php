@@ -64,7 +64,11 @@ class LoginModel extends UserModel
                 // check if user exists
                 $user_email = $post['user_email'];
                 $user_password = $post['user_password'];
-                $user_check = $userRepo->selectOneByEmail($user_email)[0];
+                $user_check = $userRepo->selectOneByEmail($user_email);
+                if(!empty($user_check))
+                {
+                    $user_check = $user_check[0];
+                }
                 if($user_check)
                 {
                     $user_check = password_verify($user_password, $user_check['user_password']);

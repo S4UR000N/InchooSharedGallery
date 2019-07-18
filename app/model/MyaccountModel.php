@@ -17,14 +17,13 @@ class MyaccountModel extends UserModel
         {
             /* Get Superglobals */
             $post = new \app\super\Post();
-            $session = new \app\super\Session();
 
             $post = $post->getPost();
 
             if(array_key_exists('remove_account', $post))
             {
                 $userRepo = new \app\repository\UserRepository();
-                $result = $userRepo->removeAccount($session->get('user_id'));
+                $result = $userRepo->removeAccount($this->getUserId());
                 if($result)
                 {
                     session_destroy(); header("location: http://shared-gallery.loc/");
@@ -73,7 +72,7 @@ class MyaccountModel extends UserModel
                 else
                 {
                     $userRepo = new \app\repository\UserRepository();
-                    $result = $userRepo->changePassword($session->get('user_id'), $post['user_change_password']);
+                    $result = $userRepo->changePassword($this->getUserId(), $post['user_change_password']);
                     if($result) { $parentObject->viewData['Valid'] = true; }
                     else { $parentObject->viewData['Valid'] = false; }
                     return $parentObject->render_view("in:myaccount", $parentObject->viewData);
