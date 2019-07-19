@@ -14,7 +14,8 @@ class UserModel
     // constructor
     public function __construct()
     {
-        if(\app\super\Session::isSet()) {
+        if(\app\super\Session::isSet())
+        {
             $session = new \app\super\Session();
             $this->user_id = $session->get('user_id');
 
