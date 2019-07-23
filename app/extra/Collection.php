@@ -12,14 +12,14 @@ use app\model\FileModel;
  * pass only first argument like (query->fetchAll(FETCH::OBJ)) if you don't have model |
  * pass second argument if you want data to be sorted to certain model that is compaible with your DB table
  */
-class Collection
+class Collection implements \Countable, \IteratorAggregate
 {
     protected $items;
     protected $models = [];
 
-    public function __construct(array $items = [], string $modelName = null)
+    public function __construct($items = [], string $modelName = null)
     {
-        $this->items = $items;
+        $this->items = is_array($items) ? $items : $this->makeArray($items);
         if($modelName)
         {
             foreach($this->items as $key => $obj)
@@ -31,8 +31,13 @@ class Collection
                 }
                 $this->models[$key] = $model;
             }
+            $this->items = $this->models;
+            unset($this->models);
         }
-        var_dump($this->models); die();
+        else
+        {
+            unset($this->models);
+        }
     }
 
     /**
@@ -42,6 +47,15 @@ class Collection
     public function all()
     {
         return $this->items;
+    }
+
+    /**
+     * @return array
+     * return keys
+     */
+    public function keys()
+    {
+        return new static(array_keys($this->items));
     }
 
     /**
@@ -100,25 +114,6 @@ class Collection
     }
 
     /**
-     * @param callable $callback
-     * @return Collection
-     * modify each object and return
-     */
-    public function returnEach(callable $callback)
-    {
-        $returnEach = [];
-        foreach($this->items as $key => $item)
-        {
-            $res = $callback($item, $key);
-            if($res)
-            {
-                $returnEach.array_push($res);
-            }
-        }
-        return new static($returnEach);
-    }
-
-    /**
      * @param callable|null $callback
      * @return Collection
      */
@@ -129,5 +124,44 @@ class Collection
             return new static(array_filter($this->items, $callback));
         }
         return new static(array_filter($this->items));
+    }
+
+    /**
+     * @param callable $callback
+     * @return array|false
+     */
+    public function map(callable $callback)
+    {
+        $keys = $this->keys()->all();
+        $items = array_map($callback, $this->items, $keys);
+
+        return array_combine($keys, $items);
+    }
+
+    /**
+     * @param array $items
+     * @return Collection
+     * binds given data to items property
+     */
+    public function merge($items)
+    {
+        return new static(array_merge($this->items, $this->makeArray($items)));
+    }
+
+
+    /**
+     * @return \ArrayIterator|\Traversable
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->items);
+    }
+
+    public function makeArray($items)
+    {
+        if($items instanceof \app\extra\Collection)
+        {
+            return $items->all();
+        }
     }
 }
