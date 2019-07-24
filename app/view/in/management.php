@@ -1,4 +1,7 @@
 <?php
+// get Domain
+$domain = \app\super\Server::getDomain();
+
 // File Upload Errors and Feedback
 if(array_key_exists("invalid", $viewData)) { echo '<script>var $alert ="' . $viewData['invalid'][0] . '";</script>'; }
 else if(array_key_exists("uploaded", $viewData)) {
@@ -93,7 +96,7 @@ if(array_key_exists("deleted", $viewData)) {
 				echo "<tr>" .
 							"<td>" . $vd['file_name'] . "</td>" .
 							"<td class='preview_init' data-user_id='" . $vd['user_id'] . "'" . "data-file_id='" . $vd['file_id'] . "'" . "data-file_name='" . $vd['file_name'] . "' " . "data-toggle='modal' " . "data-target='#preview' " . "><i class='fas fa-eye text-warning'></i></td>" .
-							"<td><a href='http://shared-gallery.loc/uploads/" . $vd['user_id'] . $vd['file_name'] . "' download>" . "<div><i class='fas fa-download text-primary'></i></div></a></td>" .
+							"<td><a href='<?php echo $domain ?>/uploads/" . $vd['user_id'] . $vd['file_name'] . "' download>" . "<div><i class='fas fa-download text-primary'></i></div></a></td>" .
 							"<td class='delete' data-user_id='" . $vd['user_id'] . "'" . "data-file_id='" . $vd['file_id'] . "'" . "data-file_name='" . $vd['file_name'] . "' " . "data-toggle='modal' " . "data-target='#delete' " . "onclick='pass_data(this)'><i class='fas fa-fire text-danger'></i></div></td>" .
 						 "</tr>";
 			}
@@ -101,7 +104,7 @@ if(array_key_exists("deleted", $viewData)) {
 				echo "<tr>" .
 							"<td>" . $vd['file_name'] . "</td>" .
 							"<td class='preview_init' data-user_id='" . $vd['user_id'] . "'" . "data-file_id='" . $vd['file_id'] . "'" . "data-file_name='" . $vd['file_name'] . "' " . "data-toggle='modal' " . "data-target='#preview' " . "><i class='fas fa-eye text-warning'></i></td>" .
-							"<td><a href='http://shared-gallery.loc/uploads/" . $vd['user_id'] . $vd['file_name'] . "' download>" . "<div><i class='fas fa-download text-primary'></i></div></a></td>" .
+							"<td><a href='<?php echo $domain ?>/uploads/" . $vd['user_id'] . $vd['file_name'] . "' download>" . "<div><i class='fas fa-download text-primary'></i></div></a></td>" .
 							"<td class='text-danger'>Not Owner</td>" .
 						 "</tr>";
 			}
@@ -139,7 +142,7 @@ body {
 }
 .table th { text-align: center; }
 .table td { text-align: center; }
-.table .delete { cursor: url('http://shared-gallery.loc/resources/assets/icons/crosshair_small.png'), default; }
+.table .delete { cursor: url('<?php echo $domain ?>/resources/assets/icons/crosshair_small.png'), default; }
 i { font-size: 18px; }
 </style>
 
@@ -157,7 +160,7 @@ function img_up() {
 }
 
 // Rewind Upload
-function rewind_upload() { window.location.replace("http://shared-gallery.loc/user_management"); }
+function rewind_upload() { window.location.replace("<?php echo $domain ?>/user_management"); }
 
 
 function checking(i, len) {

@@ -1,3 +1,8 @@
+<?php
+// get Domain
+$domain = \app\super\Server::getDomain();
+?>
+
 <script>
 // load jQuery if not loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -14,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="number" data-count="401">0</div>
                 <div class="text">Acess denied</div>
                 <div class="text">You are not allowed here</div>
-                <div class="text"><a href="http://shared-gallery.loc/">Go Home</a></div>
+                <div class="text"><a href="<?php echo $domain ?>/">Go Home</a></div>
             </div>
         </div>
     </div>

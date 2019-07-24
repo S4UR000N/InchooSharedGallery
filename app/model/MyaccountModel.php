@@ -7,6 +7,9 @@ class MyaccountModel extends UserModel
 {
     public function myaccount(\app\controller\UserController $parentObject)
     {
+        // get Domain
+        $domain = \app\super\Server::getDomain();
+
         //on GET request execute if | on POST request excecute else
         // Regular Render Branch
         if (!\app\extra\Request::requestMethod())
@@ -26,7 +29,7 @@ class MyaccountModel extends UserModel
                 $result = $userRepo->removeAccount($this->getUserId());
                 if($result)
                 {
-                    session_destroy(); header("location: http://shared-gallery.loc/");
+                    session_destroy(); header("location: {$domain}/");
                 }
                 else
                 {

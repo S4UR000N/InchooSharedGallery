@@ -1,3 +1,8 @@
+<?php
+// get Domain
+$domain = \app\super\Server::getDomain();
+?>
+
 <!-- MODALS.START -->
 
 <!-- Preview File Modal -->
@@ -90,7 +95,7 @@ var preview_info_body = document.getElementById('preview_info_body');
 function AjaxGetAllFiles() {
     var AjaxGetAllFilesRequest = 'AjaxController:AjaxGetAllFiles';
     $.ajax({
-        url: 'http://shared-gallery.loc/ajax_getAllFiles',
+        url: '<?php echo $domain ?>/ajax_getAllFiles',
         type: 'POST',
         data: { ajax:AjaxGetAllFilesRequest },
         success:function(data) {
