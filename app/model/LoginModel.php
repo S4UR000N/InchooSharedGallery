@@ -104,8 +104,11 @@ class LoginModel extends UserModel
                 $session->set('user_id', $user_check['user_id']);
                 $session->set('user_name', $user_check['user_name']);
 
+                // get Domain
+                $domain = \app\super\Server::getDomain();
+
                 // Redirect
-                header("location: http://shared-gallery.loc/");
+                header("location: $domain/");
             }
         }
     }

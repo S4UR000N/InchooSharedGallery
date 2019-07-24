@@ -120,7 +120,12 @@ class RegistrationModel extends UserModel
                 $user->setUserEmail($post['user_email']);
                 $user->setUserPassword(password_hash($post['user_password'], PASSWORD_BCRYPT));
                 $userRepo->saveUser($user);
-                header("location: http://shared-gallery.loc/user_login");
+
+                // get Domain
+                $domain = \app\super\Server::getDomain();
+
+                // Redirect
+                header("location: $domain/user_login");
             }
         }
     }

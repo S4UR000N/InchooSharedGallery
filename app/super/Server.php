@@ -33,4 +33,18 @@ final class Server
         }
         return false;
     }
+
+    public static function getProtocol()
+    {
+        return $protocol = $_SERVER['REQUEST_SCHEME'];
+    }
+    public static function getHost()
+    {
+        return $host = $_SERVER['HTTP_HOST'];
+    }
+
+    public static function getDomain()
+    {
+       return $domain = self::getProtocol() . "://" . self::getHost();
+    }
 }

@@ -32,13 +32,13 @@ final class LayoutLoader
     {
         if(\app\extra\Request::isLogdIn())
         {
-            \app\layout\header\Header::headerIn();
+            $path = BP . "app/view/header/headerin.php";
+            require $path;
         }
         else
         {
-            \app\layout\header\Header::headerOut();
+            $path = BP . "app/view/header/headerout.php";
+            require $path;
         }
-
-        \app\layout\header\Header::headerStyle();
     }
 }

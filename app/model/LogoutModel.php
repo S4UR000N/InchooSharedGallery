@@ -10,7 +10,10 @@ class LogoutModel
         // Destroy Session
         session_destroy();
 
+        // get Domain
+        $domain = \app\super\Server::getDomain();
+
         // Redirect
-        header("location: http://shared-gallery.loc/");
+        header("location: $domain/");
     }
 }

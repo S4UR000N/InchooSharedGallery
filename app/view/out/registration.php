@@ -1,3 +1,7 @@
+<?php
+$domain = \app\super\Server::getDomain();
+?>
+
 <!-- Spacing -->
 <br /><br /><br /><br />
 
@@ -28,7 +32,7 @@
 <input class="input" type="password" name="user_confirm_password" value=""/>
 
 <button class="btn text-light" type="submit" style="font-size: 20px; background-color: #0099CC;">Register</button>
-<p class="align-self-center">or <a href="http://shared-gallery.loc/user_login">Login</a></p>
+<p class="align-self-center">or <a href="<?php echo $domain; ?>/user_login">Login</a></p>
 </form>
 </div>
 
