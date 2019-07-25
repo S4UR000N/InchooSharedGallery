@@ -145,7 +145,14 @@ class Collection implements \Countable, \IteratorAggregate
      */
     public function merge($items)
     {
-        return new static(array_merge($this->items, $this->makeArray($items)));
+        if(is_array($items))
+        {
+            return new static(array_merge($this->items, $items));
+        }
+        else
+        {
+            return new static(array_merge($this->items, $this->makeArray($items)));
+        }
     }
 
 

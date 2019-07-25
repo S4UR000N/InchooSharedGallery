@@ -59,7 +59,16 @@ class CollectionController
         $this->files = $this->files->merge($queryData);
         var_dump($this->files);
     }
+
     public function sample6()
+    {
+        $con = \app\extra\Connection::getInstance()->getCon();
+        $queryData = $con->query("SELECT * FROM files;")->fetchAll(\PDO::FETCH_OBJ);
+        $col = new \app\extra\Collection($queryData);
+        $this->files = $this->files->merge($col);
+        var_dump($this->files);
+    }
+    public function sample7()
     {
         foreach($this->files as $file)
         {
@@ -67,7 +76,7 @@ class CollectionController
         }
     }
 
-    public function sample7()
+    public function sample8()
     {
         $con = \app\extra\Connection::getInstance()->getCon();
         $queryData = $con->query("SELECT * FROM files;")->fetchAll(\PDO::FETCH_OBJ);
