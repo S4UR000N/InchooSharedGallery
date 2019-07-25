@@ -57,7 +57,7 @@ class ManagementModel extends UserModel
                     $unlink = unlink("uploads/" . $this->getUserId() . $post['file_name']);
                 }
                 if ($isDeleted > 0 && $unlink) {
-                    $this->viewData['deleted'] = true;
+                    $parentObject->viewData['deleted'] = true;
                 }
                 $parentObject->viewData['viewFiles'] = $fileRepo->selectUserFilesUnionOtherFiles();
                 $parentObject->render_view("in:management", $parentObject->viewData);
